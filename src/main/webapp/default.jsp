@@ -28,7 +28,7 @@
   <body>
     <tagfiles:header />
     <div id="hate" class="container snakes snake-hater">
-      <h1 class="cover-heading">Welcome to Lathagi CI/CD pipeline Project</h1>
+      <h1 class="cover-heading">Welcome to CI/CD pipeline Project -- Lathangi</h1>
       <p class="lead">Milestone 2 project</p>
       <!--Intro -->
       <h2>Do you or a loved one hate snakes? lathangi hii</h2>
@@ -81,6 +81,7 @@
     <script src="js/init.js"></script>
   </body>
 </html>
+
 
 
 
