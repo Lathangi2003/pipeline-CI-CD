@@ -6,19 +6,25 @@ pool:
 
 variables:
   tag: '$(Build.BuildId)'
-  dockerRegistryServiceConnection: 'YOUR_SERVICE_CONNECTION_NAME'
+
+  # ✅ Azure DevOps Service connection name for ACR (Project Settings → Service connections)
+  dockerRegistryServiceConnection: 'acr-ltim-01'
+
+  # ✅ Image repo name in ACR (example: pipeline-ci-cd)
   imageRepository: 'pipeline-ci-cd'
+
+  # ✅ Dockerfile in repo root (matches your repo structure)
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
 
 steps:
 - checkout: self
 
 - task: Docker@2
-  displayName: Build and push an image to container registry
+  displayName: Build and push image to ACR
   inputs:
     command: buildAndPush
-    repository: $(imageRepository)
-    dockerfile: $(dockerfilePath)
     containerRegistry: $(dockerRegistryServiceConnection)
+    repository: $(imageRepository)
+    Dockerfile: $(dockerfilePath)
     tags: |
       $(tag)
