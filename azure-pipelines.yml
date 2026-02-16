@@ -6,17 +6,14 @@ pool:
 
 variables:
   tag: '$(Build.BuildId)'
-
-  # ✅ Azure DevOps Service connection name for ACR (Project Settings → Service connections)
   dockerRegistryServiceConnection: 'acr-ltim-01'
-
-  # ✅ Image repo name in ACR (example: pipeline-ci-cd)
   imageRepository: 'pipeline-ci-cd'
-
-  # ✅ Dockerfile in repo root (matches your repo structure)
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
 
 steps:
+- script: echo "PIPELINE YAML IS RUNNING"
+  displayName: Debug marker
+
 - checkout: self
 
 - task: Docker@2
